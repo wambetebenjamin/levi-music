@@ -14,19 +14,18 @@ const counts: Record<string, string> = {
 
 export function GenreStrip() {
   return (
-    <div className="levi-genre-strip" role="list" aria-label="Browse music by genre">
+    <nav className="levi-genre-strip" aria-label="Browse music by genre">
       {genres.map((genre, index) => (
         <Link
           key={genre.slug}
           href={`/music?genre=${genre.slug}`}
           className="levi-genre-tile"
-          role="listitem"
         >
           <span className="index">{String(index + 1).padStart(2, "0")}</span>
           <h5>{genre.name}</h5>
           <p>{counts[genre.slug] ?? "East African sound"}</p>
         </Link>
       ))}
-    </div>
+    </nav>
   );
 }
