@@ -1,0 +1,3003 @@
+@import url("https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400i,500,500i,600,600i,700,700i");
+@import "./vendor/bootstrap.min.css";
+@import "./vendor/classy-nav.css";
+@import "./vendor/owl.carousel.min.css";
+@import "./vendor/animate.css";
+@import "./vendor/magnific-popup.css";
+@import "./vendor/font-awesome.min.css";
+@import "./vendor/audioplayer.css";
+@import "./vendor/one-music-icon.css";
+@import "./vendor/style.css";
+
+/* ---------------------------------------------------------------
+   Levi Music design tokens. Values read directly from the uploaded
+   One Music theme (_theme_color.scss and style.css).
+   --------------------------------------------------------------- */
+:root {
+  --levi-black: #000000;
+  --levi-ink: #232323;
+  --levi-text: #5f5f5f;
+  --levi-gray: #f5f9fa;
+  --levi-line: #d8d8d8;
+  --levi-white: #ffffff;
+  --levi-secondary: #838383;
+  --levi-error: #b3261e;
+  --levi-success: #1f6b3a;
+  --levi-font: "Archivo Narrow", sans-serif;
+  --player-height: 84px;
+  --dock-gap: 24px;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--levi-font);
+  color: var(--levi-text);
+  background-color: var(--levi-white);
+  overflow-x: hidden;
+  padding-bottom: 0;
+}
+
+body.levi-with-player {
+  padding-bottom: calc(var(--player-height) + 20px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--levi-font);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--levi-black);
+  outline-offset: 3px;
+}
+
+.levi-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100000;
+  background: var(--levi-black);
+  color: var(--levi-white);
+  padding: 12px 20px;
+  font-size: 14px;
+}
+
+.levi-skip-link:focus {
+  left: 10px;
+  top: 10px;
+  color: var(--levi-white);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Header ------------------------------------------------------- */
+.levi-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.levi-header .oneMusic-main-menu {
+  height: 92px;
+}
+
+.levi-header .classynav ul li a.levi-nav-active {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.levi-nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--levi-white);
+}
+
+.levi-nav-logo:hover,
+.levi-nav-logo:focus {
+  color: var(--levi-white);
+}
+
+.levi-nav-logo .mark {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 7px 5px;
+}
+
+.levi-nav-logo .mark span {
+  width: 3px;
+  background: var(--levi-white);
+  display: block;
+  animation: levi-bar 1.1s ease-in-out infinite;
+}
+
+.levi-nav-logo .mark span:nth-child(1) {
+  height: 60%;
+  animation-delay: 0s;
+}
+.levi-nav-logo .mark span:nth-child(2) {
+  height: 100%;
+  animation-delay: 0.15s;
+}
+.levi-nav-logo .mark span:nth-child(3) {
+  height: 45%;
+  animation-delay: 0.3s;
+}
+.levi-nav-logo .mark span:nth-child(4) {
+  height: 80%;
+  animation-delay: 0.45s;
+}
+
+.levi-nav-logo .wordmark {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.levi-nav-logo .wordmark small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 3px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 3px;
+}
+
+.levi-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.levi-header-actions .levi-header-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.levi-header-actions .levi-header-link:hover {
+  color: var(--levi-white);
+}
+
+.levi-header-actions .levi-header-cta {
+  min-width: 0;
+  height: 40px;
+  line-height: 38px;
+  padding: 0 20px;
+  border-color: rgba(255, 255, 255, 0.8);
+  color: var(--levi-white);
+  background: transparent;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.levi-header-actions .levi-header-cta:hover {
+  background: var(--levi-white);
+  color: var(--levi-black);
+}
+
+.classynav ul li a {
+  letter-spacing: 1px;
+}
+
+.classy-menu {
+  background-color: var(--levi-black);
+}
+
+/* Page furniture ---------------------------------------------- */
+.levi-page {
+  min-height: 100vh;
+  background: var(--levi-white);
+}
+
+.breadcumb-area.levi-breadcrumb {
+  height: 360px;
+  position: relative;
+  z-index: 2;
+}
+
+.breadcumb-area.levi-breadcrumb.levi-breadcrumb-sm {
+  height: 300px;
+}
+
+.breadcumb-area.levi-breadcrumb .bradcumbContent {
+  padding-bottom: 34px;
+}
+
+.breadcumb-area.levi-breadcrumb .bradcumbContent h2 {
+  letter-spacing: 8px;
+}
+
+.breadcumb-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 30px 32px;
+}
+
+.breadcumb-pills a {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--levi-ink);
+  border: 1px solid var(--levi-line);
+  padding: 6px 14px;
+  font-weight: 500;
+}
+
+.breadcumb-pills a:hover,
+.breadcumb-pills a.is-active {
+  border-color: var(--levi-black);
+  background: var(--levi-black);
+  color: var(--levi-white);
+}
+
+.levi-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.levi-section.tight {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.levi-section.gray {
+  background: var(--levi-gray);
+}
+
+.section-heading.levi-left {
+  text-align: left;
+}
+
+.section-heading.levi-left h2 {
+  letter-spacing: 6px;
+}
+
+.section-heading.levi-left p {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.levi-eyebrow {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.levi-lead {
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--levi-text);
+  max-width: 720px;
+}
+
+/* Hero --------------------------------------------------------- */
+.levi-hero {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  min-height: 780px;
+  display: flex;
+  align-items: center;
+}
+
+.levi-hero .levi-hero-media {
+  position: absolute;
+  inset: -12% 0 -12% 0;
+  z-index: -10;
+  will-change: transform;
+}
+
+.levi-hero .levi-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.levi-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -5;
+  background: rgba(0, 0, 0, 0.62);
+}
+
+.levi-hero-inner {
+  padding: 190px 0 110px;
+  position: relative;
+  z-index: 2;
+}
+
+.levi-hero h1 {
+  color: var(--levi-white);
+  font-size: 68px;
+  line-height: 1.1;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.levi-hero h1 span {
+  display: block;
+  font-size: 22px;
+  letter-spacing: 8px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 18px;
+}
+
+.levi-hero p.levi-hero-copy {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 17px;
+  line-height: 1.9;
+  max-width: 560px;
+  margin-bottom: 38px;
+}
+
+.levi-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.levi-hero-ctas .oneMusic-btn {
+  min-width: 0;
+  padding: 0 34px;
+}
+
+.levi-hero-ctas .oneMusic-btn.levi-btn-solid {
+  background: var(--levi-white);
+  color: var(--levi-black);
+  border-color: var(--levi-white);
+}
+
+.levi-hero-ctas .oneMusic-btn.levi-btn-solid:hover {
+  background: transparent;
+  color: var(--levi-white);
+  border-color: var(--levi-white);
+}
+
+.levi-hero-ctas .oneMusic-btn.levi-btn-ghost {
+  background: transparent;
+  color: var(--levi-white);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.levi-hero-ctas .oneMusic-btn.levi-btn-ghost:hover {
+  background: var(--levi-white);
+  color: var(--levi-black);
+}
+
+.levi-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 48px;
+}
+
+.levi-hero-trust div strong {
+  display: block;
+  color: var(--levi-white);
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.levi-hero-trust div span {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Buttons ------------------------------------------------------ */
+.oneMusic-btn.levi-btn-sm {
+  min-width: 0;
+  height: 42px;
+  line-height: 40px;
+  padding: 0 22px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.oneMusic-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.levi-link-arrow {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--levi-black);
+  padding-bottom: 3px;
+}
+
+.levi-link-arrow i {
+  font-size: 13px;
+  margin-left: 6px;
+}
+
+/* Genre strip -------------------------------------------------- */
+.levi-genre-strip {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 4px 18px;
+  scrollbar-width: thin;
+}
+
+.levi-genre-strip::-webkit-scrollbar {
+  height: 6px;
+}
+
+.levi-genre-strip::-webkit-scrollbar-thumb {
+  background: var(--levi-line);
+}
+
+.levi-genre-tile {
+  scroll-snap-align: start;
+  flex: 0 0 232px;
+  border: 1px solid var(--levi-line);
+  padding: 26px 22px;
+  transition: all 0.4s ease;
+  background: var(--levi-white);
+  display: block;
+}
+
+.levi-genre-tile .index {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--levi-secondary);
+  display: block;
+  margin-bottom: 26px;
+}
+
+.levi-genre-tile h5 {
+  font-size: 19px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.levi-genre-tile p {
+  font-size: 13px;
+  margin-bottom: 0;
+  color: var(--levi-secondary);
+}
+
+.levi-genre-tile:hover,
+.levi-genre-tile:focus {
+  border-color: var(--levi-black);
+  background: var(--levi-black);
+  transform: translateY(-4px);
+}
+
+.levi-genre-tile:hover h5,
+.levi-genre-tile:focus h5 {
+  color: var(--levi-white);
+}
+
+.levi-genre-tile:hover .index,
+.levi-genre-tile:focus .index,
+.levi-genre-tile:hover p,
+.levi-genre-tile:focus p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Track cards -------------------------------------------------- */
+.levi-track-card {
+  position: relative;
+  border: 1px solid transparent;
+  transition: all 0.4s ease;
+  margin-bottom: 34px;
+  background: var(--levi-white);
+  display: block;
+}
+
+.levi-track-card:hover,
+.levi-track-card:focus-within {
+  border-color: var(--levi-black);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.levi-track-thumb {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--levi-gray);
+}
+
+.levi-track-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.levi-track-card:hover .levi-track-thumb img {
+  transform: scale(1.04);
+}
+
+.levi-track-thumb .levi-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.levi-track-card:hover .levi-thumb-overlay {
+  opacity: 1;
+}
+
+.levi-play-btn {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--levi-white);
+  border: 1px solid var(--levi-black);
+  color: var(--levi-black);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.levi-play-btn:hover {
+  background: var(--levi-black);
+  color: var(--levi-white);
+}
+
+.levi-play-btn.is-active {
+  background: var(--levi-black);
+  color: var(--levi-white);
+}
+
+.levi-play-btn .icon-play-button {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.levi-track-genre {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--levi-white);
+  color: var(--levi-black);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  z-index: 2;
+}
+
+.levi-track-body {
+  padding: 16px 4px 4px;
+}
+
+.levi-track-body h5 {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.levi-track-body .levi-track-artist {
+  font-size: 14px;
+  color: var(--levi-text);
+  margin-bottom: 0;
+}
+
+.levi-track-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+}
+
+.levi-duration-tag {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--levi-secondary);
+}
+
+/* Artist cards ------------------------------------------------- */
+.levi-artist-card {
+  border: 1px solid transparent;
+  padding: 18px;
+  transition: all 0.4s ease;
+  margin-bottom: 30px;
+  background: var(--levi-white);
+}
+
+.levi-artist-card:hover {
+  border-color: var(--levi-line);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.levi-artist-photo {
+  position: relative;
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 1px solid var(--levi-line);
+}
+
+.levi-artist-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.levi-artist-card h5 {
+  font-size: 19px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.levi-artist-card .levi-artist-meta {
+  font-size: 13px;
+  text-align: center;
+  color: var(--levi-text);
+  margin-bottom: 14px;
+}
+
+.levi-artist-card .levi-artist-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid var(--levi-line);
+  padding-top: 14px;
+}
+
+.levi-artist-card .levi-artist-foot span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+}
+
+.levi-artist-eyebrow {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+  margin-bottom: 14px;
+}
+
+.levi-artist-eyebrow .verified {
+  color: var(--levi-black);
+  font-weight: 700;
+}
+
+/* Charts ------------------------------------------------------- */
+.levi-chart {
+  border-top: 1px solid var(--levi-line);
+}
+
+.levi-chart-row {
+  display: grid;
+  grid-template-columns: 54px 60px 1fr auto auto;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 10px;
+  border-bottom: 1px solid var(--levi-line);
+  transition: background 0.3s ease;
+}
+
+.levi-chart-row:hover {
+  background: var(--levi-gray);
+}
+
+.levi-chart-rank {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--levi-line);
+  line-height: 1;
+}
+
+.levi-chart-row:nth-child(-n + 3) .levi-chart-rank {
+  color: var(--levi-black);
+}
+
+.levi-chart-cover {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  background: var(--levi-gray);
+}
+
+.levi-chart-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.levi-chart-info h6 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.levi-chart-info p {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.levi-chart-plays {
+  font-size: 13px;
+  color: var(--levi-secondary);
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.levi-chart-play {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--levi-line);
+  background: var(--levi-white);
+  color: var(--levi-black);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.levi-chart-play:hover,
+.levi-chart-play.is-active {
+  background: var(--levi-black);
+  color: var(--levi-white);
+  border-color: var(--levi-black);
+}
+
+@media (max-width: 767px) {
+  .levi-chart-row {
+    grid-template-columns: 34px 46px 1fr auto;
+    gap: 12px;
+    padding: 12px 4px;
+  }
+  .levi-chart-cover {
+    width: 46px;
+    height: 46px;
+  }
+  .levi-chart-plays {
+    display: none;
+  }
+}
+
+/* How it works ------------------------------------------------- */
+.levi-how {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--levi-line);
+}
+
+.levi-how-col {
+  padding: 46px 44px;
+}
+
+.levi-how-col + .levi-how-col {
+  border-left: 1px solid var(--levi-line);
+  background: var(--levi-white);
+}
+
+.levi-how-col.first {
+  background: var(--levi-gray);
+}
+
+.levi-how-col h3 {
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+}
+
+.levi-how-col .levi-how-sub {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--levi-secondary);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.levi-step {
+  display: flex;
+  gap: 18px;
+  padding: 16px 0;
+  border-top: 1px solid var(--levi-line);
+}
+
+.levi-step .num {
+  font-size: 14px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--levi-black);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+}
+
+.levi-step h6 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.levi-step p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  .levi-how {
+    grid-template-columns: 1fr;
+  }
+  .levi-how-col + .levi-how-col {
+    border-left: 0;
+    border-top: 1px solid var(--levi-line);
+  }
+}
+
+/* Filter bar --------------------------------------------------- */
+.levi-filter-bar {
+  border: 1px solid var(--levi-line);
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: flex-end;
+  background: var(--levi-white);
+  margin-bottom: 50px;
+}
+
+.levi-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 170px;
+  flex: 1 1 170px;
+}
+
+.levi-field label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.levi-field .form-control,
+.levi-search .form-control {
+  border: 1px solid var(--levi-line);
+  border-radius: 0;
+  height: 46px;
+  font-size: 14px;
+  color: var(--levi-ink);
+  background: var(--levi-white);
+  box-shadow: none;
+  padding: 0 14px;
+}
+
+.levi-field select.form-control {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--levi-ink) 50%),
+    linear-gradient(135deg, var(--levi-ink) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 21px, calc(100% - 13px) 21px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.levi-field .form-control:focus,
+.levi-search .form-control:focus {
+  border-color: var(--levi-black);
+  box-shadow: none;
+}
+
+.levi-filter-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.levi-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.levi-chip {
+  border: 1px solid var(--levi-line);
+  padding: 7px 16px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--levi-ink);
+  background: var(--levi-white);
+}
+
+.levi-chip:hover,
+.levi-chip.is-active {
+  background: var(--levi-black);
+  border-color: var(--levi-black);
+  color: var(--levi-white);
+}
+
+.levi-results-count {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+  margin-bottom: 30px;
+}
+
+.levi-empty {
+  border: 1px dashed var(--levi-line);
+  padding: 70px 30px;
+  text-align: center;
+}
+
+.levi-empty h3 {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Track detail ------------------------------------------------ */
+.levi-track-detail {
+  padding-top: 80px;
+}
+
+.levi-detail-cover {
+  position: relative;
+  border: 1px solid var(--levi-line);
+}
+
+.levi-detail-cover img {
+  width: 100%;
+  display: block;
+}
+
+.levi-detail-title {
+  font-size: 42px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.levi-detail-artist {
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.levi-detail-artist:hover {
+  color: var(--levi-secondary);
+}
+
+.levi-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  padding: 22px 0;
+  border-top: 1px solid var(--levi-line);
+  border-bottom: 1px solid var(--levi-line);
+  margin-bottom: 28px;
+}
+
+.levi-detail-meta div span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+  margin-bottom: 4px;
+}
+
+.levi-detail-meta div strong {
+  font-size: 15px;
+  color: var(--levi-ink);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.levi-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 34px;
+}
+
+.levi-icon-btn {
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--levi-black);
+  background: var(--levi-white);
+  color: var(--levi-black);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.levi-icon-btn:hover {
+  background: var(--levi-black);
+  color: var(--levi-white);
+}
+
+.levi-lyrics {
+  background: var(--levi-gray);
+  border: 1px solid var(--levi-line);
+  padding: 30px;
+}
+
+.levi-lyrics h4 {
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.levi-lyrics pre {
+  white-space: pre-wrap;
+  font-family: var(--levi-font);
+  font-size: 15px;
+  line-height: 2;
+  color: var(--levi-text);
+  margin-bottom: 0;
+}
+
+.levi-share-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Artist profile --------------------------------------------- */
+.levi-artist-hero {
+  position: relative;
+  padding: 180px 0 70px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.levi-artist-hero .levi-artist-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+}
+
+.levi-artist-hero .levi-artist-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: grayscale(20%);
+}
+
+.levi-artist-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -5;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.levi-artist-hero .levi-artist-portrait {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--levi-white);
+  flex: 0 0 168px;
+}
+
+.levi-artist-hero .levi-artist-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.levi-artist-hero h1 {
+  color: var(--levi-white);
+  font-size: 46px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.levi-artist-hero .levi-artist-sub {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.levi-artist-hero .levi-artist-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+  margin-bottom: 26px;
+}
+
+.levi-artist-hero .levi-artist-stats strong {
+  color: var(--levi-white);
+  font-size: 22px;
+  display: block;
+  line-height: 1;
+}
+
+.levi-artist-hero .levi-artist-stats span {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.levi-artist-hero .oneMusic-btn {
+  min-width: 0;
+  padding: 0 26px;
+  height: 46px;
+  line-height: 44px;
+}
+
+.levi-btn-on-dark {
+  background: transparent;
+  color: var(--levi-white);
+  border-color: var(--levi-white);
+}
+
+.levi-btn-on-dark:hover {
+  background: var(--levi-white);
+  color: var(--levi-black);
+}
+
+.levi-btn-light {
+  background: var(--levi-white);
+  color: var(--levi-black);
+  border-color: var(--levi-white);
+}
+
+.levi-btn-light:hover {
+  background: transparent;
+  color: var(--levi-white);
+}
+
+@media (max-width: 767px) {
+  .levi-artist-hero .levi-artist-portrait {
+    width: 120px;
+    height: 120px;
+    flex: 0 0 120px;
+    margin-bottom: 24px;
+  }
+  .levi-artist-hero h1 {
+    font-size: 30px;
+  }
+}
+
+.levi-discography {
+  border-top: 1px solid var(--levi-line);
+}
+
+.levi-disc-row {
+  display: grid;
+  grid-template-columns: 46px 1fr auto auto auto;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--levi-line);
+}
+
+.levi-disc-row:hover {
+  background: var(--levi-gray);
+}
+
+.levi-disc-thumb {
+  width: 46px;
+  height: 46px;
+  overflow: hidden;
+}
+
+.levi-disc-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.levi-disc-row h6 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1px;
+}
+
+.levi-disc-row p {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.levi-disc-row .levi-disc-plays {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+}
+
+.levi-about-box {
+  border: 1px solid var(--levi-line);
+  padding: 34px;
+  background: var(--levi-gray);
+}
+
+.levi-about-box h3 {
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.levi-about-box p {
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.levi-latest-upload {
+  border: 1px solid var(--levi-black);
+  padding: 24px;
+}
+
+.levi-latest-upload .levi-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.levi-latest-upload h4 {
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.levi-latest-upload img {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+/* Forms -------------------------------------------------------- */
+.levi-form-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.levi-form-card {
+  border: 1px solid var(--levi-line);
+  padding: 44px;
+  background: var(--levi-white);
+}
+
+.levi-form-card h2 {
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.levi-form-card .levi-form-sub {
+  font-size: 14px;
+  color: var(--levi-text);
+  margin-bottom: 32px;
+}
+
+.levi-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.levi-form-grid .full {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 767px) {
+  .levi-form-card {
+    padding: 26px;
+  }
+  .levi-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.levi-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.levi-input-group label {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--levi-ink);
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.levi-input-group .form-control {
+  border: 1px solid var(--levi-line);
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 48px;
+  font-family: var(--levi-font);
+  font-size: 15px;
+  color: var(--levi-ink);
+  padding: 12px 14px;
+  background: var(--levi-white);
+}
+
+.levi-input-group .form-control:focus {
+  border-color: var(--levi-black);
+}
+
+.levi-input-group textarea.form-control {
+  min-height: 130px;
+}
+
+.levi-input-group .levi-error-text {
+  font-size: 12px;
+  color: var(--levi-error);
+  letter-spacing: 0.4px;
+}
+
+.levi-input-group .levi-hint {
+  font-size: 12px;
+  color: var(--levi-secondary);
+}
+
+.levi-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.levi-checkbox-row input[type="checkbox"] {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--levi-black);
+}
+
+.levi-checkbox-row label {
+  font-size: 14px;
+  color: var(--levi-text);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.levi-form-status {
+  padding: 14px 18px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  border: 1px solid var(--levi-line);
+}
+
+.levi-form-status.success {
+  border-color: var(--levi-success);
+  color: var(--levi-success);
+}
+
+.levi-form-status.error {
+  border-color: var(--levi-error);
+  color: var(--levi-error);
+}
+
+.levi-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 26px 0;
+  color: var(--levi-secondary);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.levi-divider::before,
+.levi-divider::after {
+  content: "";
+  height: 1px;
+  background: var(--levi-line);
+  flex: 1;
+}
+
+.levi-google-btn {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--levi-black);
+  background: var(--levi-white);
+  color: var(--levi-black);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.levi-google-btn:hover {
+  background: var(--levi-black);
+  color: var(--levi-white);
+}
+
+.levi-auth-roles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.levi-role-card {
+  border: 1px solid var(--levi-line);
+  padding: 18px;
+  text-align: left;
+  background: var(--levi-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.levi-role-card strong {
+  display: block;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--levi-ink);
+}
+
+.levi-role-card span {
+  font-size: 13px;
+  color: var(--levi-text);
+  line-height: 1.6;
+  display: block;
+  margin-top: 4px;
+}
+
+.levi-role-card.is-active {
+  border-color: var(--levi-black);
+  background: var(--levi-gray);
+}
+
+.levi-auth-shell {
+  padding-top: 150px;
+  padding-bottom: 100px;
+  background: var(--levi-gray);
+  min-height: 100vh;
+}
+
+.levi-auth-aside {
+  position: relative;
+  border: 1px solid var(--levi-line);
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.levi-auth-aside img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.levi-auth-aside .levi-auth-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  background: rgba(0, 0, 0, 0.72);
+  padding: 28px;
+}
+
+.levi-auth-aside .levi-auth-caption h3 {
+  color: var(--levi-white);
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.levi-auth-aside .levi-auth-caption p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  margin-bottom: 0;
+  line-height: 1.8;
+}
+
+/* Dashboard --------------------------------------------------- */
+.levi-dash {
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+
+.levi-dash-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 44px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--levi-line);
+}
+
+.levi-dash-head h1 {
+  font-size: 32px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.levi-dash-head p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.levi-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 991px) {
+  .levi-stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.levi-stat {
+  border: 1px solid var(--levi-line);
+  padding: 26px;
+  background: var(--levi-white);
+}
+
+.levi-stat span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+  margin-bottom: 12px;
+}
+
+.levi-stat strong {
+  font-size: 30px;
+  line-height: 1;
+  color: var(--levi-ink);
+  letter-spacing: 1px;
+}
+
+.levi-stat small {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--levi-secondary);
+}
+
+.levi-panel {
+  border: 1px solid var(--levi-line);
+  margin-bottom: 40px;
+}
+
+.levi-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 26px;
+  border-bottom: 1px solid var(--levi-line);
+  background: var(--levi-gray);
+}
+
+.levi-panel-head h2 {
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.levi-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.levi-table th {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+  text-align: left;
+  padding: 16px 26px;
+  border-bottom: 1px solid var(--levi-line);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.levi-table td {
+  padding: 16px 26px;
+  font-size: 14px;
+  color: var(--levi-ink);
+  border-bottom: 1px solid var(--levi-line);
+  vertical-align: middle;
+}
+
+.levi-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.levi-table .levi-row-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.levi-table .levi-row-title img {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+}
+
+.levi-table .levi-row-title strong {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.levi-status {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--levi-line);
+  color: var(--levi-secondary);
+}
+
+.levi-status.published {
+  border-color: var(--levi-black);
+  color: var(--levi-black);
+}
+
+.levi-status.processing {
+  border-color: var(--levi-secondary);
+  color: var(--levi-secondary);
+}
+
+.levi-table-scroll {
+  overflow-x: auto;
+}
+
+.levi-list-simple {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.levi-list-simple li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 26px;
+  border-bottom: 1px solid var(--levi-line);
+}
+
+.levi-list-simple li:last-child {
+  border-bottom: 0;
+}
+
+.levi-list-simple img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+}
+
+.levi-list-simple .levi-list-info {
+  flex: 1;
+}
+
+.levi-list-simple h6 {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0;
+}
+
+.levi-list-simple p {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.levi-dash-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+/* Modal -------------------------------------------------------- */
+.levi-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.levi-modal {
+  background: var(--levi-white);
+  border: 1px solid var(--levi-black);
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 34px;
+  position: relative;
+}
+
+.levi-modal h3 {
+  font-size: 22px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.levi-modal .levi-modal-sub {
+  font-size: 14px;
+  color: var(--levi-text);
+  margin-bottom: 24px;
+}
+
+.levi-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--levi-line);
+  background: var(--levi-white);
+  color: var(--levi-black);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.levi-amount-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.levi-amount {
+  border: 1px solid var(--levi-line);
+  padding: 14px;
+  background: var(--levi-white);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--levi-ink);
+  text-align: center;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.levi-amount.is-active {
+  background: var(--levi-black);
+  border-color: var(--levi-black);
+  color: var(--levi-white);
+}
+
+.levi-modal-note {
+  font-size: 12px;
+  color: var(--levi-secondary);
+  line-height: 1.7;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.levi-mpesa-ref {
+  border: 1px solid var(--levi-success);
+  color: var(--levi-success);
+  padding: 16px;
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+/* Mini player ------------------------------------------------- */
+.levi-mini-player {
+  position: fixed;
+  left: var(--dock-gap);
+  right: var(--dock-gap);
+  bottom: var(--dock-gap);
+  height: var(--player-height);
+  background: var(--levi-black);
+  color: var(--levi-white);
+  z-index: 9997;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 20px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.levi-mini-player .levi-mp-cover {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  overflow: hidden;
+}
+
+.levi-mini-player .levi-mp-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.levi-mini-player .levi-mp-info {
+  min-width: 0;
+  flex: 0 0 190px;
+}
+
+.levi-mini-player .levi-mp-info h6 {
+  color: var(--levi-white);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.levi-mini-player .levi-mp-info p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.levi-mp-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.levi-mp-btn {
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: var(--levi-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.levi-mp-btn:hover {
+  background: var(--levi-white);
+  color: var(--levi-black);
+}
+
+.levi-mp-btn.main {
+  width: 46px;
+  height: 46px;
+  background: var(--levi-white);
+  color: var(--levi-black);
+  border-color: var(--levi-white);
+}
+
+.levi-mp-btn.main:hover {
+  background: transparent;
+  color: var(--levi-white);
+}
+
+.levi-mp-progress {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 120px;
+}
+
+.levi-mp-time {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 1px;
+  min-width: 38px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.levi-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  outline: none;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.levi-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: var(--levi-white);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.levi-range::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+.levi-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: var(--levi-white);
+  border: 0;
+  border-radius: 50%;
+}
+
+.levi-range.levi-volume {
+  max-width: 88px;
+}
+
+.levi-mp-volume {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.levi-mp-close {
+  background: transparent;
+  border: 0;
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.levi-mp-close:hover {
+  color: var(--levi-white);
+}
+
+.levi-player-pulse {
+  width: 8px;
+  height: 8px;
+  background: var(--levi-white);
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  animation: levi-player-pulse 1.4s ease-in-out infinite;
+}
+
+@media (max-width: 991px) {
+  .levi-mini-player {
+    gap: 10px;
+    padding: 0 12px;
+  }
+  .levi-mini-player .levi-mp-info {
+    flex: 1;
+  }
+  .levi-mp-volume {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .levi-mini-player {
+    height: 74px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+  .levi-mini-player .levi-mp-cover {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+  }
+  .levi-mini-player .levi-mp-info {
+    flex-basis: auto;
+  }
+  .levi-mp-controls .levi-skip-btn {
+    display: none;
+  }
+  .levi-mp-time {
+    display: none;
+  }
+}
+
+/* Floating actions -------------------------------------------- */
+.levi-float {
+  position: fixed;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  bottom: var(--dock-gap);
+  border: 0;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.levi-float:hover {
+  transform: translateY(-3px);
+}
+
+.levi-float .levi-tooltip {
+  position: absolute;
+  bottom: 70px;
+  white-space: nowrap;
+  background: var(--levi-black);
+  color: var(--levi-white);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  padding: 7px 12px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: all 0.25s ease;
+}
+
+.levi-float:hover .levi-tooltip,
+.levi-float:focus-visible .levi-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.levi-whatsapp {
+  right: var(--dock-gap);
+  background: #25d366;
+  color: var(--levi-white);
+  animation: levi-whatsapp-pulse 3.4s ease-out infinite;
+}
+
+.levi-whatsapp:hover {
+  background: #1faa52;
+  color: var(--levi-white);
+}
+
+.levi-whatsapp .levi-tooltip {
+  right: 0;
+}
+
+.levi-voice {
+  left: var(--dock-gap);
+  background: var(--levi-black);
+  color: var(--levi-white);
+  border: 1px solid var(--levi-black);
+}
+
+.levi-voice:hover {
+  background: var(--levi-ink);
+  color: var(--levi-white);
+}
+
+.levi-voice .levi-tooltip {
+  left: 0;
+}
+
+.levi-voice .levi-voice-icon {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+}
+
+.levi-voice.is-speaking::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.35);
+  animation: levi-voice-ring 1.8s ease-out infinite;
+}
+
+html[data-consent="open"] .levi-float {
+  bottom: calc(var(--consent-h, 190px) + 16px);
+}
+
+html[data-consent="open"] .levi-mini-player {
+  bottom: calc(var(--consent-h, 190px) + 16px);
+}
+
+html[data-player="open"] .levi-float {
+  bottom: calc(var(--player-height) + 40px);
+}
+
+html[data-player="open"][data-consent="open"] .levi-float {
+  bottom: calc(var(--consent-h, 190px) + var(--player-height) + 32px);
+}
+
+html[data-player="open"] .levi-mini-player {
+  bottom: 24px;
+}
+
+html[data-player="open"][data-consent="open"] .levi-mini-player {
+  bottom: calc(var(--consent-h, 190px) + 16px);
+}
+
+@media (max-width: 767px) {
+  html {
+    --player-height: 74px;
+  }
+  .levi-float {
+    width: 52px;
+    height: 52px;
+    bottom: 16px;
+  }
+  .levi-whatsapp {
+    right: 16px;
+  }
+  .levi-voice {
+    left: 16px;
+  }
+}
+
+/* Cookie consent ---------------------------------------------- */
+.levi-consent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9996;
+  background: var(--levi-white);
+  border-top: 1px solid var(--levi-line);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.levi-consent-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 22px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.levi-consent-copy {
+  flex: 1 1 460px;
+}
+
+.levi-consent-copy h4 {
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.levi-consent-copy p {
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.levi-consent-copy a {
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.levi-consent-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.levi-consent-actions .oneMusic-btn {
+  min-width: 0;
+  height: 44px;
+  line-height: 42px;
+  padding: 0 22px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.levi-consent-actions .oneMusic-btn.levi-btn-outline {
+  background: var(--levi-white);
+  color: var(--levi-black);
+  border-color: var(--levi-black);
+}
+
+.levi-consent-actions .oneMusic-btn.levi-btn-outline:hover {
+  background: var(--levi-black);
+  color: var(--levi-white);
+}
+
+.levi-prefs {
+  border-top: 1px solid var(--levi-line);
+  background: var(--levi-white);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.levi-prefs.open {
+  max-height: 520px;
+}
+
+.levi-prefs-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 30px 30px;
+}
+
+.levi-pref-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--levi-line);
+}
+
+.levi-pref-row:last-of-type {
+  border-bottom: 0;
+}
+
+.levi-pref-row strong {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--levi-ink);
+}
+
+.levi-pref-row p {
+  font-size: 13px;
+  margin-bottom: 0;
+  line-height: 1.7;
+  max-width: 620px;
+}
+
+.levi-switch {
+  position: relative;
+  width: 46px;
+  height: 24px;
+  flex: 0 0 46px;
+  border: 1px solid var(--levi-black);
+  background: var(--levi-white);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.levi-switch::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--levi-black);
+  top: 3px;
+  left: 3px;
+  transition: all 0.25s ease;
+}
+
+.levi-switch.on {
+  background: var(--levi-black);
+}
+
+.levi-switch.on::after {
+  left: 25px;
+  background: var(--levi-white);
+}
+
+.levi-switch:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Voice tour & assorted keyframes ----------------------------- */
+@keyframes levi-bar {
+  0%,
+  100% {
+    transform: scaleY(0.55);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes levi-voice-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes levi-whatsapp-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  60% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes levi-player-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Footer ------------------------------------------------------- */
+.levi-footer {
+  background: var(--levi-black);
+  padding: 80px 0 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.levi-footer .levi-footer-brand {
+  margin-bottom: 20px;
+}
+
+.levi-footer h4 {
+  color: var(--levi-white);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.levi-footer ul {
+  margin: 0;
+  padding: 0;
+}
+
+.levi-footer li {
+  margin-bottom: 10px;
+}
+
+.levi-footer li a,
+.levi-footer p,
+.levi-footer .levi-footer-link {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.levi-footer li a:hover,
+.levi-footer .levi-footer-link:hover {
+  color: var(--levi-white);
+}
+
+.levi-footer .levi-footer-tagline {
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+
+.levi-footer-bottom {
+  margin-top: 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 24px 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.levi-footer-bottom a {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
+}
+
+.levi-footer-bottom a:hover {
+  color: var(--levi-white);
+}
+
+/* Legal pages ------------------------------------------------- */
+.levi-legal {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.levi-legal-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .levi-legal-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.levi-legal-nav {
+  border: 1px solid var(--levi-line);
+  padding: 24px;
+  position: sticky;
+  top: 30px;
+}
+
+.levi-legal-nav h4 {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.levi-legal-nav a {
+  display: block;
+  font-size: 14px;
+  color: var(--levi-text);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--levi-line);
+}
+
+.levi-legal-nav a:last-child {
+  border-bottom: 0;
+}
+
+.levi-legal-nav a.is-active,
+.levi-legal-nav a:hover {
+  color: var(--levi-black);
+}
+
+.levi-prose h2 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 40px 0 14px;
+}
+
+.levi-prose h2:first-of-type {
+  margin-top: 0;
+}
+
+.levi-prose p,
+.levi-prose li {
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--levi-text);
+}
+
+.levi-prose ul {
+  padding-left: 0;
+}
+
+.levi-prose ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.levi-prose ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  background: var(--levi-black);
+}
+
+.levi-prose .levi-updated {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+  border-left: 2px solid var(--levi-black);
+  padding-left: 14px;
+  margin-bottom: 36px;
+}
+
+.levi-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+}
+
+.levi-prose th,
+.levi-prose td {
+  border: 1px solid var(--levi-line);
+  padding: 12px 16px;
+  font-size: 14px;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Error pages ------------------------------------------------- */
+.levi-error-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 200px 20px 100px;
+  text-align: center;
+  background: var(--levi-gray);
+}
+
+/* The header sits on a dark band, exactly like every other page. */
+.levi-error-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background-color: var(--levi-black);
+}
+
+.levi-error-page .levi-error-inner {
+  max-width: 560px;
+}
+
+.levi-error-page .levi-error-icon {
+  width: 86px;
+  height: 86px;
+  border: 1px solid var(--levi-black);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.levi-error-page h1 {
+  font-size: 34px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.levi-error-page p {
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 30px;
+}
+
+.levi-error-page .levi-error-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.levi-error-page .oneMusic-btn {
+  min-width: 0;
+  padding: 0 28px;
+}
+
+.levi-error-code {
+  font-size: 13px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--levi-secondary);
+  margin-bottom: 18px;
+}
+
+/* Player page ------------------------------------------------- */
+.levi-player-page {
+  padding: 100px 0;
+}
+
+.levi-player-stage {
+  border: 1px solid var(--levi-line);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.levi-player-stage img {
+  width: 100%;
+  display: block;
+}
+
+.levi-player-stage .levi-player-title {
+  font-size: 34px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.levi-queue {
+  border: 1px solid var(--levi-line);
+  margin-top: 30px;
+}
+
+.levi-queue-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--levi-line);
+  width: 100%;
+  background: transparent;
+  text-align: left;
+}
+
+.levi-queue-row:last-child {
+  border-bottom: 0;
+}
+
+.levi-queue-row:hover,
+.levi-queue-row.is-active {
+  background: var(--levi-gray);
+}
+
+.levi-queue-row img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+}
+
+.levi-queue-row .levi-queue-info {
+  flex: 1;
+}
+
+.levi-queue-row h6 {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0;
+}
+
+.levi-queue-row p {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .levi-player-stage {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+}
+
+/* Utilities --------------------------------------------------- */
+.levi-mt-40 {
+  margin-top: 40px;
+}
+
+.levi-mb-0 {
+  margin-bottom: 0;
+}
+
+.levi-page-intro {
+  padding-top: 70px;
+}
+
+.levi-section-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.levi-note {
+  font-size: 13px;
+  color: var(--levi-secondary);
+  line-height: 1.8;
+}
+
+.levi-two-col {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .levi-two-col {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .levi-hero {
+    min-height: 640px;
+  }
+  .levi-hero h1 {
+    font-size: 38px;
+    letter-spacing: 2px;
+  }
+  .levi-hero h1 span {
+    font-size: 16px;
+    letter-spacing: 4px;
+  }
+  .levi-hero-inner {
+    padding: 140px 0 80px;
+  }
+  .levi-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .levi-detail-title {
+    font-size: 30px;
+  }
+  .breadcumb-area.levi-breadcrumb {
+    height: 300px;
+  }
+  .levi-stat strong {
+    font-size: 24px;
+  }
+}
+
+/* Navigation additions ---------------------------------------- */
+.levi-nav-bar {
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+}
+
+.levi-nav-desktop ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.levi-nav-desktop ul li {
+  list-style: none;
+}
+
+.levi-nav-desktop ul li a {
+  color: var(--levi-white);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.levi-nav-desktop ul li a:hover,
+.levi-nav-desktop ul li a.levi-nav-active {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.levi-nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--levi-white);
+}
+
+.levi-drawer {
+  position: fixed;
+  inset: 0;
+  background: var(--levi-black);
+  z-index: 10000;
+  padding: 26px 26px 40px;
+  overflow-y: auto;
+}
+
+.levi-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.levi-drawer-head button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--levi-white);
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.levi-drawer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.levi-drawer-list li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.levi-drawer-list li a {
+  display: block;
+  padding: 18px 0;
+  color: var(--levi-white);
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.levi-drawer-list li a.is-active {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.levi-drawer-foot {
+  margin-top: 36px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  line-height: 1.9;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 991px) {
+  .levi-nav-desktop,
+  .levi-header-actions .levi-header-link,
+  .levi-header-actions .levi-header-cta {
+    display: none;
+  }
+  .levi-nav-toggle {
+    display: inline-flex;
+  }
+  .levi-nav-bar {
+    height: 78px;
+  }
+  .levi-hero-inner {
+    padding-top: 150px;
+  }
+  .levi-hero h1 {
+    font-size: 46px;
+  }
+}
+
+/* Typographic inheritance for card links ------------------------ */
+.levi-track-body h5 a,
+.levi-chart-info h6 a,
+.levi-artist-card h5 a,
+.levi-disc-row h6 a,
+.levi-queue-row h6 a,
+.levi-latest-upload h4 a,
+.levi-list-simple h6 a,
+.levi-table a,
+.levi-prose p a,
+.levi-prose li a,
+.levi-note a {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.levi-prose p a,
+.levi-prose li a,
+.levi-note a {
+  text-decoration: underline;
+}
+
+.levi-chart-info h6 a,
+.levi-disc-row h6 a,
+.levi-queue-row h6 a {
+  font-weight: 700;
+}
+
+.levi-footer .levi-nav-logo {
+  color: var(--levi-white);
+}
+
+.levi-footer .levi-nav-logo .mark {
+  border-color: rgba(255, 255, 255, 0.4);
+}
